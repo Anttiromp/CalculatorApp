@@ -12,6 +12,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
     private EditText userInputField1;
     private EditText userInputField2;
@@ -78,10 +80,12 @@ public class MainActivity extends AppCompatActivity {
         String input1 = userInputField1.getText().toString();
         String input2 = userInputField2.getText().toString();
 
+        DecimalFormat df = new DecimalFormat("0.00");
+
         if (!input1.isEmpty() && !input2.isEmpty() && !input2.equals("0")) {
             double value1 = Double.parseDouble(input1);
             double value2 = Double.parseDouble(input2);
-            outputField.setText(String.valueOf(value1/value2));
+            outputField.setText((df.format(value1/value2)));
         } else if (input2.equals("0")){
             Toast.makeText(this, "Cannot divide by zero", Toast.LENGTH_LONG).show();
             outputField.setText("");
