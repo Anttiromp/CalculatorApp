@@ -74,6 +74,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void divideTwoNumbers(View view) {
+        String input1 = userInputField1.getText().toString();
+        String input2 = userInputField2.getText().toString();
 
+        if (!input1.isEmpty() && !input2.isEmpty() && !input2.equals("0")) {
+            double value1 = Double.parseDouble(input1);
+            double value2 = Double.parseDouble(input2);
+            outputField.setText(String.valueOf(value1/value2));
+        } else if (input2.equals("0")){
+            Toast.makeText(this, "Cannot divide by zero", Toast.LENGTH_LONG).show();
+            outputField.setText("");
+        } else {
+            Toast.makeText(this, "One or two number fields currently empty", Toast.LENGTH_LONG).show();
+            outputField.setText("");
+        }
+    }
 
 }
