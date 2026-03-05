@@ -60,6 +60,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void multiplyTwoNumbers(View view) {
+        String input1 = userInputField1.getText().toString();
+        String input2 = userInputField2.getText().toString();
+
+        if (!input1.isEmpty() && !input2.isEmpty()) {
+            int value1 = Integer.parseInt(input1);
+            int value2 = Integer.parseInt(input2);
+            outputField.setText(String.valueOf(value1*value2));
+        } else {
+            Toast.makeText(this, "One or two number fields currently empty", Toast.LENGTH_LONG).show();
+            outputField.setText("");
+        }
+    }
+
 
 
 }
